@@ -74,6 +74,9 @@ const Table = () => {
                 }, 2000);
               }),
           }}
+          onRowClick={(evt, selectedRow) =>
+            setSelectedRow(selectedRow.tableData.id)
+          }
           options={{
             actionsColumnIndex: -1,
             addRowPosition: "first",
@@ -82,6 +85,10 @@ const Table = () => {
               fontWeight: "bold",
               fontSize: "17px",
             },
+            rowStyle: (rowData) => ({
+              backgroundColor:
+                selectedRow === rowData.tableData.id ? "#EEE" : "#FFF",
+            }),
           }}
           actions={[
             {
